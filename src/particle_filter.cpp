@@ -37,17 +37,17 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
     
     for(int i = 0; i < num_particles; i++)
     {      
-   		Particle  temp_particle;
+	Particle  temp_particle;
 
-        temp_particle.x  = dist_x(gen);
-		temp_particle.y = dist_y(gen);
-		temp_particle.theta = dist_theta(gen);
-		
-		temp_particle.weight= 1.0;
-		temp_particle.id = i;
+	temp_particle.x  = dist_x(gen);
+	temp_particle.y = dist_y(gen);
+	temp_particle.theta = dist_theta(gen);
 
-        particles.push_back(temp_particle);
-        weights.push_back(1.0);
+	temp_particle.weight= 1.0;
+	temp_particle.id = i;
+
+	particles.push_back(temp_particle);
+	weights.push_back(1.0);
     }
     
     is_initialized = true;
@@ -68,7 +68,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
      */
     
     //creat new states
-	double pred_x ;
+    double pred_x ;
     double pred_y;
     double pred_theta;
 
