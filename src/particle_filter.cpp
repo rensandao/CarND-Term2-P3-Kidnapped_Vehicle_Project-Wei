@@ -1,6 +1,5 @@
 /*
  * particle_filter.cpp
- *
  *  Created on: Dec 12, 2016
  *      Author: Tiffany Huang
  */
@@ -137,7 +136,6 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
         }
     }
 }
-
 void ParticleFilter::updateWeights(double sensor_range, double std_landmark[], 
 		const std::vector<LandmarkObs> &observations, const Map &map_landmarks) {
 	// TODO: Update the weights of each particle using a mult-variate Gaussian distribution. You can read
