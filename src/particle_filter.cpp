@@ -12,7 +12,6 @@
 #include <sstream>
 #include <string>
 #include <iterator>
-
 #include "particle_filter.h"
 
 using namespace std;
