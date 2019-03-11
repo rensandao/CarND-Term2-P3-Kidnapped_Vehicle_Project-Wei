@@ -3,7 +3,6 @@
  *  Created on: Dec 12, 2016
  *      Author: Tiffany Huang
  */
-
 #include <random>
 #include <algorithm>
 #include <iostream>
