@@ -13,9 +13,9 @@
 #include <string>
 #include <iterator>
 #include "particle_filter.h"
-
 using namespace std;
-// As recommended from forum;
+
+//As recommended from forum
 static default_random_engine gen;
 
 void ParticleFilter::init(double x, double y, double theta, double std[]) {
