@@ -33,8 +33,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
     normal_distribution<double> dist_y(y,std[1]);
     normal_distribution<double> dist_theta(theta,std[2]);
     
-    for(int i = 0; i < num_particles; i++)
-    {      
+    for(int i = 0; i < num_particles; i++) {      
 	Particle  temp_particle;
 
 	temp_particle.x  = dist_x(gen);
@@ -72,7 +71,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 
     for(int i=0; i<num_particles; ++i){
 	    //update x, y and the yaw angle when the yaw rate is not equal to zero
-        if(fabs(yaw_rate) >= 0.00001){ 
+        if(fabs(yaw_rate) >= 0.00001) { 
       
                 double x_update = velocity * (sin(particles[i].theta + yaw_rate * delta_t) -sin(particles[i].theta));
                 x_update = x_update / yaw_rate;
@@ -83,14 +82,12 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
                 pred_y = particles[i].y + y_update;
                 pred_theta = particles[i].theta + yaw_rate * delta_t;
         	
-        }else{
-            
+        } else {
             for(int i=0; i<num_particles; ++i){
                 
                 pred_x = particles[i].x + velocity * delta_t * cos(particles[i].theta);
                 pred_y = particles[i].y + velocity * delta_t * sin(particles[i].theta);
                 pred_theta = particles[i].theta;
-            
             }
         }
 
@@ -106,7 +103,6 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
         particles[i].x = pred_x;
         particles[i].y = pred_y;
         particles[i].theta = pred_theta;
-
     }
 }
 
@@ -115,7 +111,6 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 	//   observed measurement to this particular landmark.
 	// NOTE: this method will NOT be called by the grading code. But you will probably find it useful to 
 	//   implement this method and use it as a helper during the updateWeights phase.
-    
     for(unsigned int i=0; i<observations.size(); ++i){
         
         //initialize distance ranging from min to max
@@ -129,7 +124,6 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
             if(dist_curr_pred < min_pred_obs){
                 //update the min dist
                 min_pred_obs = dist_curr_pred;
-
                 observations[i].id = predicted[j].id;
             }
         }
@@ -147,8 +141,8 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 	//   and the following is a good resource for the actual equation to implement (look at equation 
 	//   3.33
 	//   http://planning.cs.uiuc.edu/node99.html
-    
-    for(int i = 0; i < num_particles; i ++){
+	
+    for(int i = 0; i < num_particles; i ++) {
 
         //initialize particles' coordinate 
         double paticle_x = particles[i].x;
