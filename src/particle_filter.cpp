@@ -232,7 +232,6 @@ void ParticleFilter::resample() {
     
     for(unsigned int i=0; i<particles.size(); ++i){
         int d = dist_index(gen);
-        
         New_Particles.push_back(particles[d]);
     }
     
